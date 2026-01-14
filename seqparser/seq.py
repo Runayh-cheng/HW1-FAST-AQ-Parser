@@ -26,4 +26,3 @@ def reverse_transcribe(seq: str) -> str:
         
     # Hey this is my comment
     # Again!
-    pass
