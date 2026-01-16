@@ -35,9 +35,9 @@ def reverse_transcribe(seq: str) -> str:
     for bp in seq:
         if bp not in TRANSCRIPTION_MAPPING:
             raise ValueError("Invalid base pair in input.")
-        else: 
-            reverseTranscript += TRANSCRIPTION_MAPPING.get(bp, bp)
-            return reverseTranscript[::-1]
+        reverseTranscript += TRANSCRIPTION_MAPPING.get(bp, bp)
+    
+    return reverseTranscript[::-1]
         
     # Hey this is my comment
     # Again!
