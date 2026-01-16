@@ -10,7 +10,19 @@ def transcribe(seq: str, reverse: bool = False) -> str:
     Write a function that will transcribe (replace DNA sequence to RNA
     by replacing all 'T' to 'U') in an input sequence
     """
-    return seq.replace("T", "U")
+
+    ### Although the function is called transcribe, this is not biology right?
+    ### So I am literally just replacing T to U?
+
+    for bp in seq:
+        if bp not in TRANSCRIPTION_MAPPING:
+            raise ValueError("Invalid base pair in input.")
+        else: 
+            SeqMod = seq.replace("T", "U")
+            if reverse == False:
+                return SeqMod
+            elif reverse == True: 
+                return SeqMod[::-1]
 
 def reverse_transcribe(seq: str) -> str:
     """
@@ -20,9 +32,11 @@ def reverse_transcribe(seq: str) -> str:
     reverseTranscript = ""
 
     for bp in seq:
-        reverseTranscript += mapping.get(bp, bp)
-    
-    return reverseTranscript[::-1]
+        if bp not in TRANSCRIPTION_MAPPING:
+            raise ValueError("Invalid base pair in input.")
+        else: 
+            reverseTranscript += mapping.get(bp, bp)
+            return reverseTranscript[::-1]
         
     # Hey this is my comment
     # Again!

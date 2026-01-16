@@ -1,4 +1,5 @@
 # write tests for transcribe functions
+import pytest
 
 from seqparser import (
         transcribe,
@@ -25,7 +26,14 @@ def test_transcribe():
     """
     Write your unit test for the transcribe function here.
     """
-    assert transcribe("ATCGT") == "AUCGU"
+    assert transcribe("ATCGT", False) == "AUCGU"
+    assert transcribe("ATCGT", True) == "UGCUA"
+   
+    with pytest.raises(ValueError) as info:
+        transcribe("ABCDE")
+    assert info.type is ValueError
+    
+
 
 
 def test_reverse_transcribe():
@@ -34,5 +42,8 @@ def test_reverse_transcribe():
     """
     assert transcribe("ATCGT") == "ACGAU"
 
-    
+    with pytest.raises(ValueError) as info:
+        transcribe("ABCDE")
+    assert info.type is ValueError
+
     
