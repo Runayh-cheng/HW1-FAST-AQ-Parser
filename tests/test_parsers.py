@@ -35,7 +35,7 @@ def test_FastaParser():
     """
     assert list(FastaParser(blank.fa)) == []
     assert FastaParser(bad.fa) == []
-    assert len(list((FastaParser(test.fa)))) == 100
+    assert len(list((FastaParser("data/test.fa")))) == 100
 
 
 
@@ -53,8 +53,8 @@ def test_FastqParser():
     an instance of your FastqParser class and assert that it properly reads 
     in the example Fastq File.
     """
-    assert len(list(FastqParser(test.fq))) == 100
-    assert list(FastqParser(test.fq))[0] == ("seq0",
+    assert len(list(FastqParser("data/test.fq"))) == 100
+    assert list(FastqParser("data/test.fq"))[0] == ("seq0",
     "TGTGGTCGTATAGTTATTGTCATAAATTACACAGAATCGCGATTCTCCGCGTCCACCAATCTTAGTGCACCACAGCATCGACCCGATTTATGACGCTGAG", 
     """*540($=*,=.062565,2>'487')!:&&6=,6,*7>:&132&83*8(58&59>'8!;28<94,0*;*.94**:9+7"94(>7='(!5"2/!%"4#32=""")
 
