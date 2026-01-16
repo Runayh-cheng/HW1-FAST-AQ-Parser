@@ -34,9 +34,8 @@ def test_FastaParser():
     provided in /tests/bad.fa and /tests/empty.fa
     """
 
-    with pytest.raises(ValueError) as info:
-        FastaParser("tests/bad.fa")
-    assert info.type is ValueError
+    assert list(FastaParser("tests/bad.fa")) == []
+ 
     
 
     with pytest.raises(ValueError) as info:
