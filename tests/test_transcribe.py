@@ -40,10 +40,10 @@ def test_reverse_transcribe():
     """
     Write your unit test for the reverse transcribe function here.
     """
-    assert transcribe("ATCGT") == "ACGAU"
+    assert reverse_transcribetranscribe("ATCGT") == "ACGAU"
 
     with pytest.raises(ValueError) as info:
-        transcribe("ABCDE")
+        reverse_transcribetranscribe("ABCDE")
     assert info.type is ValueError
 
     
