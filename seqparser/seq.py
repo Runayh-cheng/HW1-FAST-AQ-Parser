@@ -17,12 +17,13 @@ def transcribe(seq: str, reverse: bool = False) -> str:
     for bp in seq:
         if bp not in TRANSCRIPTION_MAPPING:
             raise ValueError("Invalid base pair in input.")
-        else: 
-            SeqMod = seq.replace("T", "U")
-            if reverse == False:
-                return SeqMod
-            elif reverse == True: 
-                return SeqMod[::-1]
+
+    SeqMod = seq.replace("T", "U")
+    
+    if reverse == False:
+        return SeqMod
+    elif reverse == True: 
+        return SeqMod[::-1]
 
 def reverse_transcribe(seq: str) -> str:
     """
@@ -35,7 +36,7 @@ def reverse_transcribe(seq: str) -> str:
         if bp not in TRANSCRIPTION_MAPPING:
             raise ValueError("Invalid base pair in input.")
         else: 
-            reverseTranscript += mapping.get(bp, bp)
+            reverseTranscript += TRANSCRIPTION_MAPPING.get(bp, bp)
             return reverseTranscript[::-1]
         
     # Hey this is my comment
