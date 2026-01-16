@@ -34,7 +34,7 @@ def test_FastaParser():
     provided in /tests/bad.fa and /tests/empty.fa
     """
     assert list(FastaParser("tests/blank.fa")) == []
-    assert FastaParser("tests/bad.fa"") == []
+    assert FastaParser("tests/bad.fa") == []
     assert len(list((FastaParser("data/test.fa")))) == 100
 
 
